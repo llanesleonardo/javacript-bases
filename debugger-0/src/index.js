@@ -1,3 +1,5 @@
+import './main.css'
+
 const ACTIVE_CLASS = 'block--active'
 const TRANSITION_CLASS = 'block--transition'
 
