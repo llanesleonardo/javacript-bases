@@ -8,8 +8,14 @@ const min10 = numbers.filter(number => number < 10)
 // console.table(min10)
 
 // * reduce
-const total = numbers.reduce((acc, cur, i, arr) => {
+const sum = numbers.reduce((acc, cur, i, arr) => {
   return acc + cur
 }, 0)
 
-//console.log({ total })
+// dame el total de la lista miltiplicado por 2 que sean menor 20
+const total = numbers
+  .map(number => number * 2)
+  .filter(number => number < 20)
+  .reduce((acc, cur) => acc + cur, 0)
+
+console.log({ total })

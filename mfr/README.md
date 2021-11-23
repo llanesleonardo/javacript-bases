@@ -100,3 +100,5 @@ Refs: [parcel](https://parceljs.org/recipes/debugging/)
 ## Credits
 
 Made with [createapp.dev](https://createapp.dev/)
+
+https://miro.medium.com/max/724/0*cQwPe6QPdl_-ByOq.png
