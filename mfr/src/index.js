@@ -19,3 +19,11 @@ const total = numbers
   .reduce((acc, cur) => acc + cur, 0)
 
 console.log({ total })
+
+//* usar mock shop
+
+// 1) encontrar todos los productos de categoria "Mens Footwear" y asignar a un nuevo array
+
+// 2) aplicar un 20% de descuento a todos los productos
+
+// 3) sumar el total de ventas de todos los productos
