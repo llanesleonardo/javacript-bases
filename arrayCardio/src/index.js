@@ -1,6 +1,6 @@
 //* ## Array Cardio Day 1
 
-// Some data we can work with
+//* Some data we can work with
 const inventors = [
   { first: 'Albert', last: 'Einstein', year: 1879, passed: 1955 },
   { first: 'Isaac', last: 'Newton', year: 1643, passed: 1727 },
@@ -16,19 +16,19 @@ const inventors = [
   { first: 'Hanna', last: 'Hammarström', year: 1829, passed: 1909 }
 ]
 
-// Array.prototype.filter()
-// 1. Filter the list of inventors for those who were born in the 1500's
+//* Array.prototype.filter()
+//* 1. Filter the list of inventors for those who were born in the 1500's
 
-// Array.prototype.map()
-// 2. Give us an array of the inventors' first and last names
+//* Array.prototype.map()
+//* 2. Give us an array of the inventors' first and last names
 
-// Array.prototype.sort()
-// 3. Sort the inventors by birthdate, oldest to youngest
+//* Array.prototype.sort()
+//* 3. Sort the inventors by birthdate, oldest to youngest
 
-// Array.prototype.reduce()
-// 4. How many years did all the inventors live?
+//* Array.prototype.reduce()
+//* 4. How many years did all the inventors live?
 
-// 5. Sort the inventors by years lived
+//* 5. Sort the inventors by years lived
 const people = [
   'Beck, Glenn',
   'Becker, Carl',
@@ -72,14 +72,14 @@ const people = [
   'Blair, Tony',
   'Blake, William'
 ]
-// 6. create a list of Boulevards in Paris that contain 'ra' anywhere in the name
+//* 6. create a list of Boulevards in Paris that contain 'ra' anywhere in the name
 
-// 7. sort Exercise
-// Sort the people alphabetically by last name
+//* 7. sort Exercise
+//* Sort the people alphabetically by last name
 
-// 8. Reduce Exercise
-// Sum up the instances of each of these
-// example return  {apple: 3, oranges: 4}
+//* 8. Reduce Exercise
+//* Sum up the instances of each of these
+//* example return  {apple: 3, oranges: 4}
 const data = [
   'car',
   'car',
