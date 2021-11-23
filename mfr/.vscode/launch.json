@@ -7,7 +7,7 @@
     {
       "type": "chrome",
       "request": "launch",
-      "name": "parcel debugger",
+      "name": "Launch Chrome against localhost",
       "url": "http://localhost:1234",
       "webRoot": "${workspaceFolder}",
       "breakOnLoad": true,
