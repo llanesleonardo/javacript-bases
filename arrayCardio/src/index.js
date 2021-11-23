@@ -25,6 +25,7 @@ const inventors = [
 //* 4. How many years did all the inventors live?
 
 //* 5. Sort the inventors by years lived
+
 const people = [
   'Beck, Glenn',
   'Becker, Carl',
@@ -68,7 +69,7 @@ const people = [
   'Blair, Tony',
   'Blake, William'
 ]
-//* 6. create a list of Boulevards in Paris that contain 'ra' anywhere in the name
+//* 6. create that contain 'ra' anywhere in the name
 
 //* 7. sort Exercise
 //* Sort the people alphabetically by last name
