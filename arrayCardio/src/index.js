@@ -1,7 +1,7 @@
 //* ## Array Cardio Day 1
 
 //* Some data we can work with
-const inventors = [
+export const inventors = [
   { first: 'Albert', last: 'Einstein', year: 1879, passed: 1955 },
   { first: 'Isaac', last: 'Newton', year: 1643, passed: 1727 },
   { first: 'Galileo', last: 'Galilei', year: 1564, passed: 1642 },
@@ -17,14 +17,59 @@ const inventors = [
 ]
 
 //* 1. Filter the list of inventors for those who were born in the 1500's
+export const patterBorn = (year, yearleft, yearRight) =>
+  year >= yearleft && year <= yearRight
+
+export const listOfBorn = inventors.filter(inventor =>
+  patterBorn(inventor.year, 1500, 1600)
+)
+
+console.log(
+  "TITULO: Filter the list of inventors for those who were born in the 1500's"
+)
+console.table(listOfBorn)
 
 //* 2. Give us an array of the inventors' first and last names
+const patterCompleName = (firstName, lastName) =>
+  firstName.concat(' ', lastName)
+const compleNameInventor = inventors.map(inventor =>
+  patterCompleName(inventor.first, inventor.last)
+)
+console.log("TITULO: Give us an array of the inventors' first and last names")
+console.table(compleNameInventor)
+//* 3. Sort the inventors by bithdate, oldest to youngest
 
-//* 3. Sort the inventors by birthdate, oldest to youngest
+//const patternBirthDay =
+
+//* 3.1. Sort the inventors by age, oldest to youngest
+const patterinventorsAge = (year, passed) => passed - year
+const inventorsAge = inventors.map(inventor =>
+  patterinventorsAge(inventor.year, inventor.passed)
+)
+console.log('TITULO: Inventors age')
+console.table(inventorsAge)
+
+const oldestToYoungestInventors = inventorsAge.sort()
+
+console.log('TITULO: Sort the inventors by birthdate, oldest to youngest')
+console.table(oldestToYoungestInventors)
 
 //* 4. How many years did all the inventors live?
+const sumYearAllInventors = inventorsAge.reduce((acc, cur) => {
+  return acc + cur
+})
+console.log('TITULO: How many years did all the inventors live?')
+console.table(sumYearAllInventors)
 
 //* 5. Sort the inventors by years lived
+const inventorYearLived = inventorsAge.sort((a, b) => {
+  const lastItem = a.passed - a.year
+  const nextItem = b.passed - b.year
+  return lastItem > nextItem ? -1 : 1
+})
+console.log('TITULO: Sort the inventors by years lived')
+console.table(inventorYearLived)
+
 const people = [
   'Beck, Glenn',
   'Becker, Carl',
@@ -68,10 +113,22 @@ const people = [
   'Blair, Tony',
   'Blake, William'
 ]
-//* 6. create a list of Boulevards in Paris that contain 'ra' anywhere in the name
+//* 6. create a list of name that contain 'ra' anywhere in the name
+const listOfra = people.filter(person => person.match('ra'))
+console.log(
+  'TITULO: create a list of name that contain ra anywhere in the name'
+)
+console.table(listOfra)
 
 //* 7. sort Exercise
 //* Sort the people alphabetically by last name
+const lastNameAlphabetic = people.map(person => person.split(',', 1))
+const lastNameAlphabeticSort = lastNameAlphabetic.sort()
+console.log(
+  'TITULO: create a list of name that contain ra anywhere in the name'
+)
+console.table(lastNameAlphabeticSort)
+//.reverse().join(' ')
 
 //* 8. Reduce Exercise
 //* Sum up the instances of each of these
@@ -92,3 +149,11 @@ const data = [
   'car',
   'truck'
 ]
+
+const instanceEach = data.reduce((acc, cur, i, array) => {
+  if (!acc.hasOwnProperty(cur)) acc[cur] = 0
+  acc[cur]++
+  return acc
+}, {})
+
+console.table(instanceEach)
