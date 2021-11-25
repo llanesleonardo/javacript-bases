@@ -17,14 +17,42 @@ const inventors = [
 ]
 
 //* 1. Filter the list of inventors for those who were born in the 1500's
+const fifteen = inventors.filter(
+  inventor => inventor.year >= 1500 && inventor.year < 1600
+)
+
+console.table(fifteen)
 
 //* 2. Give us an array of the inventors' first and last names
+const fullNames = inventors.map(
+  inventor => `${inventor.first} ${inventor.last}`
+)
+console.table(fullNames)
 
 //* 3. Sort the inventors by birthdate, oldest to youngest
+const ordered = inventors.sort(function (a, b) {
+  if (a.year > b.year) {
+    return 1
+  } else {
+    return -1
+  }
+})
+console.table(ordered)
 
 //* 4. How many years did all the inventors live?
+const totalYears = inventors.reduce((total, inventor) => {
+  return total + (inventor.passed - inventor.year)
+}, 0)
+
+console.log({ totalYears })
 
 //* 5. Sort the inventors by years lived
+const oldest = inventors.sort(function (a, b) {
+  const lastInventor = a.passed - a.year
+  const nextInventor = b.passed - b.year
+  return lastInventor > nextInventor ? -1 : 1
+})
+console.table(oldest)
 
 const people = [
   'Beck, Glenn',
@@ -70,9 +98,17 @@ const people = [
   'Blake, William'
 ]
 //* 6. create that contain 'ra' anywhere in the name
+const hasRa = people.filter(name => name.includes('ra'))
+console.table(hasRa)
 
 //* 7. sort Exercise
 //* Sort the people alphabetically by last name
+const alpha = people.sort((lastOne, nextOne) => {
+  const [aLast, aFirst] = lastOne.split(', ')
+  const [bLast, bFirst] = nextOne.split(', ')
+  return aLast > bLast ? 1 : -1
+})
+console.table(alpha)
 
 //* 8. Reduce Exercise
 //* Sum up the instances of each of these
@@ -93,3 +129,11 @@ const data = [
   'car',
   'truck'
 ]
+
+const transportation = data.reduce(function (obj, val) {
+  if (!obj[val]) obj[val] = 0
+  obj[val]++
+  return obj
+}, {})
+
+console.log(transportation)
