@@ -31,8 +31,8 @@ const comments = [
 //    {user1: { name: 'Wes', year: 1988 , daysAlive: 2312, isOlder: true }
 
 // (comments)
-// 4) find the comment with the ID of 823423 and give me the object of
+// 5) find the comment with the ID of 823423 and give me the object of
 
-// Find the comment with this ID
+// 6) Find the comment with this ID
 
-// delete the comment with the ID of 823423
+// 7) delete the comment with the ID of 823423
