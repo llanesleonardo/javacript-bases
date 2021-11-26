@@ -30,7 +30,7 @@ console.log(
 console.table(listOfBorn)
 
 //* 2. Give us an array of the inventors' first and last names
-const patterCompleName = (firstName, lastName) =>
+export const patterCompleName = (firstName, lastName) =>
   firstName.concat(' ', lastName)
 const compleNameInventor = inventors.map(inventor =>
   patterCompleName(inventor.first, inventor.last)
@@ -39,34 +39,47 @@ console.log("TITULO: Give us an array of the inventors' first and last names")
 console.table(compleNameInventor)
 //* 3. Sort the inventors by bithdate, oldest to youngest
 
-//const patternBirthDay =
+export const patternSortBirthDay = (a, b) => {
+  return b.year > a.year ? 1 : -1
+}
+const sortByBirthDay = inventors.sort((a, b) => patternSortBirthDay(a, b))
 
-//* 3.1. Sort the inventors by age, oldest to youngest
-const patterinventorsAge = (year, passed) => passed - year
-const inventorsAge = inventors.map(inventor =>
+console.log('TITULO: Sort the inventors by bithdate, oldest to youngest')
+console.table(sortByBirthDay)
+
+//* 3.1 Inventors age
+export const patterinventorsAge = (year, passed) => passed - year
+export const inventorsAge = inventors.map(inventor =>
   patterinventorsAge(inventor.year, inventor.passed)
 )
 console.log('TITULO: Inventors age')
 console.table(inventorsAge)
 
-const oldestToYoungestInventors = inventorsAge.sort()
-
-console.log('TITULO: Sort the inventors by birthdate, oldest to youngest')
-console.table(oldestToYoungestInventors)
-
 //* 4. How many years did all the inventors live?
-const sumYearAllInventors = inventorsAge.reduce((acc, cur) => {
-  return acc + cur
-})
+export const patternYearsAllInventorsLived = (acc, cur) => acc + cur
+
+const sumYearAllInventors = inventorsAge.reduce((acc, cur) =>
+  patternYearsAllInventorsLived(acc, cur)
+)
+
+export const patternReduceAllInventors = (list, accumulator, funreduce) => {
+  return list.reduce(funreduce, accumulator)
+}
+
 console.log('TITULO: How many years did all the inventors live?')
 console.table(sumYearAllInventors)
 
 //* 5. Sort the inventors by years lived
-const inventorYearLived = inventorsAge.sort((a, b) => {
+
+export const patternSortinventorYearLived = (a, b) => {
   const lastItem = a.passed - a.year
   const nextItem = b.passed - b.year
-  return lastItem > nextItem ? -1 : 1
-})
+  return lastItem > nextItem ? 1 : -1
+}
+
+const inventorYearLived = inventors.sort((a, b) =>
+  patternSortinventorYearLived(a, b)
+)
 console.log('TITULO: Sort the inventors by years lived')
 console.table(inventorYearLived)
 
@@ -114,7 +127,10 @@ const people = [
   'Blake, William'
 ]
 //* 6. create a list of name that contain 'ra' anywhere in the name
-const listOfra = people.filter(person => person.match('ra'))
+
+export const patternMatchSubstring = person => String(person).match('ra')
+
+const listOfra = people.filter(person => patternMatchSubstring(person))
 console.log(
   'TITULO: create a list of name that contain ra anywhere in the name'
 )
@@ -122,8 +138,21 @@ console.table(listOfra)
 
 //* 7. sort Exercise
 //* Sort the people alphabetically by last name
-const lastNameAlphabetic = people.map(person => person.split(',', 1))
-const lastNameAlphabeticSort = lastNameAlphabetic.sort()
+export const patterlastNameAlphabeticSplit = person =>
+  String(person).split(',', 1)
+
+const lastNameSplit = people.map(person =>
+  patterlastNameAlphabeticSplit(person)
+)
+
+const lastNameAlphabeticSort = lastNameSplit.sort()
+
+export const patternGetLast = lastNameSplit => {
+  const lastNameAlphabeticSorttoGetLast = lastNameSplit.sort()
+  return lastNameAlphabeticSorttoGetLast[
+    lastNameAlphabeticSorttoGetLast.length - 1
+  ]
+}
 console.log(
   'TITULO: create a list of name that contain ra anywhere in the name'
 )
@@ -150,10 +179,20 @@ const data = [
   'truck'
 ]
 
-const instanceEach = data.reduce((acc, cur, i, array) => {
+const instanceEach = data.reduce((acc, cur) => {
   if (!acc.hasOwnProperty(cur)) acc[cur] = 0
   acc[cur]++
   return acc
 }, {})
 
 console.table(instanceEach)
+
+const patterReduce = (acc, cur) => {
+  if (!acc.hasOwnProperty(cur)) acc[cur] = 0
+  acc[cur]++
+  return acc
+}
+
+export const patterInstanceEach = (dataArray, accumulator, funreduce) => {
+  return dataArray.reduce(funreduce, accumulator)
+}
