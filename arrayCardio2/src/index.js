@@ -36,12 +36,3 @@ const comments = [
 // Find the comment with this ID
 
 // delete the comment with the ID of 823423
-
-export function suma(a, b) {
-  return a + b
-}
-
-export function getTotal(list, acumulator, funReducer) {
-  const result = list.reduce(funReducer, acumulator)
-  return result
-}
